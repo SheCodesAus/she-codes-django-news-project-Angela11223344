@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if searched%}
+        <h1> You Searched For...{{ searched }}</h1>
+        <br/>
+        {% for story in stories %}
+            <a href="{% url 'news:story' story.id %}">{{ story.title }}</a><br/>
+        {% endfor %}
+        
+    {% else %}
+        <h1> Oh no! You Forgot To Search For A Story...</h1>
+    {% endif %}
+    
+   
+{% endblock %}

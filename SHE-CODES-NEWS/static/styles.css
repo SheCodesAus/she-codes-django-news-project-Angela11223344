@@ -1,29 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 
 body {
-    background-color: rgb(240, 239, 239);
+    /*background-color: rgb(240, 239, 239);*/
+    background-color: rgb(153, 50, 204);
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #000;
+    border-bottom: 7px solid #000;
+    
 }
 
-img {
+/*img {
     filter: grayscale(100%);
-}
+}*/
 
 h1 {
-    font-family: 'Montserrat Subrayada', sans-serif;
+    font-family: 'Raleway:thin', sans-serif;
     text-decoration: none;
     font-size: 4rem;
     margin: 0;
+    color: white;
+
 }
 
 h2 {
-   font-family: 'Montserrat Subrayada', sans-serif; 
+   font-family: 'Raleway:thin', sans-serif;
+   color: orange; 
+   font-size: xx-large;
 }
 
 h3 {
@@ -41,6 +48,7 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    font-size: large;
 }
 
 a {
@@ -50,5 +58,5 @@ a {
 }
 
 a, p {
-    font-family: monospace;
+    font-family: "Raleway:thin";
 }
