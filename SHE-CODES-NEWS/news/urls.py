@@ -7,7 +7,10 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('<int:pk>/', views.StoryView.as_view(), name='story'),
     path('add-story/', views.AddStoryView.as_view(), name='newStory'),
-    #added#
+    #added for story search#
     path('searchStories/', views.searchStories, name='searchStories'),
-    #endofadded#
+    #end of added
+    #added for filter my Stories
+    path('myStories/', views.MyStoriesView.as_view(), name='myStories'),
+    #end of added
 ]

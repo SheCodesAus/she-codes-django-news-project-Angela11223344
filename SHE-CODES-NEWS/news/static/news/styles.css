@@ -10,6 +10,12 @@
     object-fit: cover;
 }
 
+#form-style {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+}
+
 #latest-stories {
     display: grid;
     grid-template-columns: 2fr 1fr;

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>My Account Details:</h2>
+<h4>Username: {{ user.username }}</h4>
+<h4>Email Address: {{ user.email }}</h4>
+
+<div>
+    <form class="d-flex" method=POST action="#">
+
+        {% csrf_token %}
+
+        <button class="btn btn-outline-secondary" type="submit">Edit</button>
+    </form>
+</div>
+
+{% endblock %}

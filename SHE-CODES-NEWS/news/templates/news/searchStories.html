@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if searched%}
+    {% if searched %}
         <h1> You Searched For...{{ searched }}</h1>
         <br/>
         {% for story in stories %}

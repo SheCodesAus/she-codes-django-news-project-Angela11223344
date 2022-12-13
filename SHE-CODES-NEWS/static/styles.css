@@ -11,12 +11,14 @@ header {
     align-items: center;
     justify-content: space-between;
     border-bottom: 7px solid #000;
-    
+
 }
 
 /*img {
     filter: grayscale(100%);
 }*/
+
+
 
 h1 {
     font-family: 'Raleway:thin', sans-serif;

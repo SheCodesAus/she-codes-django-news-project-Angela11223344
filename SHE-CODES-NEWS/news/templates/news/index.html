@@ -24,7 +24,7 @@
                 
             {% endfor %}
         {% else %}
-            <p>No stories are available.</p>
+            <p>No stories are currently available! Check back later...</p>
         {% endif %}
         
     </div>
@@ -35,7 +35,7 @@
                 {% include "./storyCard.html" with story=story %}
             {% endfor %}
         {% else %}
-            <p>No stories are available.</p>
+            <p>You have reached the end of all stories! Check back later...</p>
         {% endif %}
     </div>
 
