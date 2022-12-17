@@ -13,4 +13,7 @@ urlpatterns = [
     #added for filter my Stories
     path('myStories/', views.MyStoriesView.as_view(), name='myStories'),
     #end of added
+    #added for comments
+    path('comment/<int:pk>', views.AddCommentView.as_view(), name='addComment'),
+    path('authorStories/<int:pk>', views.AuthorStoriesView.as_view(), name='authorStories' )
 ]

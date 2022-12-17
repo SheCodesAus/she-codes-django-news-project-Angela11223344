@@ -11,7 +11,7 @@
 
         {% csrf_token %}
 
-        <button class="btn btn-outline-secondary" type="submit">Edit</button>
+        <a href="{% url 'users:editAccount' request.user.id %}">Update My Account</a>
     </form>
 </div>
 

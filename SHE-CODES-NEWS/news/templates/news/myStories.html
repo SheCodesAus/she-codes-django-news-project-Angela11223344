@@ -15,7 +15,7 @@
             {% include "./storyCard.html" with story=story %}
         {% endfor %}
     {% else %}
-        <p>No stories by {{ user.username }} are available. Click here to submit a story! </p>
+        <p>No stories by {{ user.username }} are available.<a href="{% url 'news:newStory' %}">Click here to submit a story!</a>
     {% endif %}
         
 </div>

@@ -5,7 +5,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>She Codes News</title>
+        <title>She Codes News</title><img id="cupcake" src="{% static 'images/cupcake.jpg' %}">
         <meta name="description" content="">
         <meta name="author" content="Angela Evans">
         <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
@@ -26,9 +26,10 @@
 
         {% block content %}{% endblock%}
         <!-- content blocks here -->
+    <body>
         
     </body>
     <footer>
-        <img src="../static/news/images/news_background.jpg">
+        <img src="{% static 'images/news_background.jpg' %}">
     </footer>
 </html>

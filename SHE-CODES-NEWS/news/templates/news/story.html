@@ -11,9 +11,32 @@
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }}</h4>
     <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
+        {% if story.image_url %}
+            <img src="{{ story.image_url }}">
+        {% else %}
+            <img src="{% static '/news/images/placeholder-5.jpg' %}">
+        {% endif %}
+            
         {{ story.content|linebreaks }}
     </div>
 </div>
 
+<div id="comment-wrapper">
+    <div>
+
+        <form method="POST" action="{% url 'news:addComment' story.id %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Comment</button>
+        </form>
+    </div>
+
+    <p><a href="{% url 'news:addComment' story.id %}">Add A Comment</a></p>
+
+    <ul>
+    {% for comment in story.comments.all %}
+        <li>{{comment.author.username}} ({{comment.created_at}}): {{ comment.content }}</li>
+    {% endfor %}
+    </ul>
+</div>
 {% endblock %}

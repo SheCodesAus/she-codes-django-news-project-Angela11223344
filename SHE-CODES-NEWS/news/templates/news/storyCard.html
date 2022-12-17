@@ -7,8 +7,10 @@
         {% endif %}
         <div class="story-card-text">
             <h3>{{ story.title }}</h3>
-            <h4>{{ story.author }}</h4>
-            <h4>{{ story.pub_date }}</h4>
+            <a href="{% url 'news:authorStories' story.author.id %}">By {{ story.author }}</a>
+            <!--<h4>{{ story.author }}</h4>-->
+            <p>{{ story.pub_date }}</p>
+            <!--<p>{{ story.content|truncatewords:7 }}</p>-->
         </div>
     </a>
 </div>

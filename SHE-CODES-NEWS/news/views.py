@@ -1,8 +1,11 @@
 from django.views import generic
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
 from .models import NewsStory
-from .forms import StoryForm 
+from .forms import StoryForm, CommentForm 
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from users.models import CustomUser
 
 #added for searching
 def searchStories(request):
@@ -13,13 +16,17 @@ def searchStories(request):
         return render(request, 'news/searchStories.html', {'searched':searched, 'stories':stories})
     else:
         return render(request, 'news/searchStories.html', {})
-
-#endofadded#
+#endofadded
 
 class StoryView(generic.DetailView):
     model = NewsStory
     template_name = 'news/story.html'
     context_object_name = 'story'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = CommentForm()
+        return context
 
 
 class IndexView(generic.ListView):
@@ -49,7 +56,20 @@ class MyStoriesView(generic.ListView):
         context['user_stories'] = NewsStory.objects.filter(author=self.request.user)
         return context
 
-class AddStoryView(generic.CreateView):
+#shows author stories
+class AuthorStoriesView(generic.DetailView):
+    template_name = 'news/authorStories.html'
+    model = CustomUser
+    context_object_name = 'author'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['author_stories'] = NewsStory.objects.filter(author=self.object.id)
+        return context
+
+class AddStoryView(LoginRequiredMixin, generic.CreateView):
+    login_url = '/users/login/'
+    redirect_field_name = 'redirect_to'
     form_class = StoryForm
     context_object_name = 'storyForm'
     template_name = 'news/createStory.html'
@@ -58,3 +78,20 @@ class AddStoryView(generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class AddCommentView(generic.CreateView):
+    form_class = CommentForm
+    template_name = 'news/createComment.html'
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        pk = self.kwargs.get("pk")
+        story = get_object_or_404(NewsStory, pk=pk)
+        form.instance.story = story
+        return super().form_valid(form)
+
+    def get_success_url(self) -> str:
+        pk = self.kwargs.get("pk")
+        return reverse_lazy('news:story', kwargs={'pk':pk})
+        
