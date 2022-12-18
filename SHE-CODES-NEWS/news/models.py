@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 USER = get_user_model()
 
@@ -15,6 +16,9 @@ class NewsStory(models.Model):
     content = models.TextField()   
     image_url = models.URLField(blank=True)
     #blank=True means it's ok not to have an image
+
+    def get_absolute_url(self):
+        return reverse( 'news:story', kwargs={'pk': self.pk})
 
 
 class Comment(models.Model):

@@ -15,5 +15,6 @@ urlpatterns = [
     #end of added
     #added for comments
     path('comment/<int:pk>', views.AddCommentView.as_view(), name='addComment'),
-    path('authorStories/<int:pk>', views.AuthorStoriesView.as_view(), name='authorStories' )
+    path('authorStories/<int:pk>', views.AuthorStoriesView.as_view(), name='authorStories' ),
+    path('updateStories/<int:pk>', views.UpdateStory.as_view(), name='updateStory'),
 ]

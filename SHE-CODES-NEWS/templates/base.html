@@ -5,11 +5,12 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>She Codes News</title><img id="cupcake" src="{% static 'images/cupcake.jpg' %}">
         <meta name="description" content="">
         <meta name="author" content="Angela Evans">
         <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+        <title>She Codes News</title>
+        <a href="{% url 'news:index' %}"><img id="cupcake" src="{% static 'images/cupcake.jpg' %}"></a>
             {% block stylesheets %}{% endblock %}
     </head>
 

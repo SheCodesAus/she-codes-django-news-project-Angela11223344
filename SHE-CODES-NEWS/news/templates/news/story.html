@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block stylesheets %}
-<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}>
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 {% endblock %}
 
 {% block content %}
 
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
+    <h4>By {{ story.author }}</h4>
     <div id="story-content">
         {% if story.image_url %}
             <img src="{{ story.image_url }}">
@@ -31,7 +31,7 @@
         </form>
     </div>
 
-    <p><a href="{% url 'news:addComment' story.id %}">Add A Comment</a></p>
+    <!--<p><a href="{% url 'news:addComment' story.id %}">Add A Comment</a></p>-->
 
     <ul>
     {% for comment in story.comments.all %}

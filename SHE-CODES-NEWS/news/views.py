@@ -80,9 +80,11 @@ class AddStoryView(LoginRequiredMixin, generic.CreateView):
         return super().form_valid(form)
 
 
-class AddCommentView(generic.CreateView):
+class AddCommentView(LoginRequiredMixin, generic.CreateView):
     form_class = CommentForm
     template_name = 'news/createComment.html'
+    login_url = '/users/login/'
+    redirect_field_name = 'redirect_to'
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -95,3 +97,10 @@ class AddCommentView(generic.CreateView):
         pk = self.kwargs.get("pk")
         return reverse_lazy('news:story', kwargs={'pk':pk})
         
+class UpdateStory(LoginRequiredMixin, generic.UpdateView):
+    model = NewsStory
+    template_name = 'news/updateStory.html'
+    fields = ['title', 'content', 'image_url']
+    login_url = '/users/login/'
+    redirect_field_name = 'redirect_to'
+
