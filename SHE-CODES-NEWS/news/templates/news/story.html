@@ -9,7 +9,10 @@
 
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
-    <h4>By {{ story.author }}</h4>
+    <h4><a href="{% url 'news:authorStories' story.author.id %}">By {{ story.author }}</a></h4>
+    {% if request.user.is_authenticated and request.user.id == story.author.id %} 
+            <a style="color:orange" href="{% url 'news:updateStory' story.id %}">Edit</a>
+            {% endif %}            
     <div id="story-content">
         {% if story.image_url %}
             <img src="{{ story.image_url }}">

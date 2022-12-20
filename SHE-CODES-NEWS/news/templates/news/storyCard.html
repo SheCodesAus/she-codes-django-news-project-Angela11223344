@@ -11,7 +11,7 @@
             <!--<p>{{ story.pub_date }}</p> -->
             <!--<p>{{ story.content|truncatewords:7 }}</p>-->
             {% if request.user.is_authenticated and request.user.id == story.author.id %} 
-            <a href="{% url 'news:updateStory' story.id %}">Edit</a>
+            <a style="color:orange" href="{% url 'news:updateStory' story.id %}">Edit</a>
             {% endif %}            
 
         </div>

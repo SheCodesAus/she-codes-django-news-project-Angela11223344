@@ -9,14 +9,12 @@
     {% if searched %}
         <h2> You Searched For...{{ searched }}</h2>
         <br/>
-        {% if story in stories %}
-            {% for story in stories %}
-                <!--<a href="{% url 'news:story' story.id %}">{{ story.title }}</a><br/>-->
-                {% include "./storyCard.html" with story=story %}
-            {% endfor %}
-        {% else %}
-            <h2>No Results Found...Try Another Search...</h2>
-        {% endif %}
+        {% for story in stories %}
+            <!--<a href="{% url 'news:story' story.id %}">{{ story.title }}</a><br/>-->
+            {% include "./storyCard.html" with story=story %}
+        {% empty %}
+            <h2>No Results Found...Search Again...</h2>
+        {% endfor %}
         
     {% else %}
         <h2> Oh no! You Forgot To Search For A Story...</h2>

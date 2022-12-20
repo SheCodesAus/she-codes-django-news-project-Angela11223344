@@ -1,5 +1,7 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');*/
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
 
 body {
     /*background-color: rgb(240, 239, 239);*/
@@ -27,7 +29,7 @@ header {
 }*/
 
 h1 {
-    font-family: 'Raleway:thin', sans-serif;
+    font-family: 'Roboto Slab', serif;
     text-decoration: none;
     font-size: 4rem;
     margin: 0;
@@ -36,12 +38,19 @@ h1 {
 }
 
 h2 {
-   font-family: 'Raleway:thin', sans-serif;
+   font-family: 'Roboto Slab', serif;
    color: orange; 
    font-size: xx-large;
 }
 
 h3 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2rem;
+    margin: 0;
+}
+
+h4 {
+    font-family: 'Roboto Slab', serif;
     font-size: 2rem;
     margin: 0;
 }
@@ -63,8 +72,9 @@ a {
     margin: 2px;
     text-decoration: none;
     color: #000;
+    
 }
 
 a, p {
-    font-family: "Raleway:thin";
+    font-family: 'Roboto Slab', serif;
 }
