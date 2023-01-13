@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h2>{{ user.username }}'s Stories...</h2>
+
+<div id="all-stories">
+    {% if user_stories %}
+        {% for story in user_stories %}
+            {% include "./storyCard.html" with story=story %}
+        {% endfor %}
+    {% else %}
+        <p>No stories by {{ user.username }} are available.<a href="{% url 'news:newStory' %}">Click here to submit a story!</a>
+    {% endif %}
+        
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h2>My Account Details:</h2>
+<h4>Username: {{ user.username }}</h4>
+<h4>Email Address: {{ user.email }}</h4>
+
+<div>
+    <form class="d-flex" method=POST action="#">
+
+        {% csrf_token %}
+
+        <a href="{% url 'users:editAccount' request.user.id %}">Update My Account</a>
+    </form>
+</div>
+
+{% endblock %}

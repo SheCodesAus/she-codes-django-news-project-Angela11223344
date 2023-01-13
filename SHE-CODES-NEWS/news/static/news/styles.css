@@ -1,0 +1,129 @@
+.story-card {
+    margin: 2px;
+    border: 3px solid white;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 15px;
+}
+
+.story-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+    padding-bottom: 20px;
+}
+
+#form-style {
+    display: block;
+    text-align: left;
+    font-size: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 5px 7px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid orange;
+    border-radius: 10px;
+}
+
+button {
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 5px 70px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 10px ;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    color: orange;
+  }
+
+#cupcake {
+    width: 100px;
+    border-radius: 20px;
+}
+
+#latest-stories {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas: "left-1 right-1" "left-1 right-2" "left-1 right-3";
+    max-height: 500px;
+}
+
+#story-card-1 {
+    grid-area: left-1;
+}
+
+#story-card-2 {
+    grid-area: right-1;
+}
+
+#story-card-3 {
+    grid-area: right-2;
+}
+
+#story-card-4 {
+    grid-area: right-3;
+}
+
+#story-card-2 a,
+#story-card-3 a,
+#story-card-4 a {
+    display: flex;
+    max-height: 120px;
+    width: 100%;
+    height: 100%;
+}
+
+#story-card-2 .story-card-text h3,
+#story-card-3 .story-card-text h3,
+#story-card-4 .story-card-text h3 {
+    font-size: 16px;
+}
+
+#story-card-2 .story-card-text h4,
+#story-card-3 .story-card-text h4,
+#story-card-4 .story-card-text h4 {
+    font-size: 12px;
+}
+
+#story-card-2 img,
+#story-card-3 img,
+#story-card-4 img {
+    width: 33%;
+    height: 100%;
+    margin-right: 5px;
+}
+
+#all-stories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#all-stories .story-card {
+    flex-basis: 32%;
+    flex-grow: 1;
+}
+
+#story-content {
+    text-align: justify;
+}
+
+#story-content img {
+    float: right;
+    margin: 0 0 10px 10px;
+    width: 50%;
+}

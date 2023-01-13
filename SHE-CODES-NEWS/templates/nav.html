@@ -1,0 +1,27 @@
+<nav>
+    {% if request.user.is_authenticated %}
+        <a href="#">Welcome Back {{ user.username }}!</a>
+        <!--<a href="{% url 'users:viewAccount' user.id %}">View/Edit My Profile</a>-->
+        <a href="{% url 'users:viewAccount' request.user.id %}">View/Edit My Profile</a>
+        <a href="{% url 'news:myStories' %}">My Stories</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <!--added-->
+        <a href="{% url 'users:createAccount' %}">Create New Account</a>
+        <!--endofadded-->
+    {% endif %}
+        <a href="{% url 'news:index' %}">Home</a>
+<!--added-->
+    <div>
+        <form class="d-flex" method=POST action="{% url 'news:searchStories' %}">
+
+            {% csrf_token %}
+
+            <input class="form-control me-2" type="search" placeholder="Search Story Content" aria-label="Search" name="searched">
+            <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </form>
+    </div>
+<!--endofadded-->
+
+</nav>

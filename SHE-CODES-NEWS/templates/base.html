@@ -1,0 +1,44 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="author" content="Angela Evans">
+        <link href="https://fonts.googleapis.com/css?family=Manjari&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+        <title>She Codes News</title>
+        <a href="{% url 'news:index' %}"><img id="cupcake" src="{% static 'images/cupcake.jpg' %}"></a>
+            {% block stylesheets %}{% endblock %}
+    </head>
+
+    <body>
+        <header>
+            <div id="header-text">
+                <a id="header-link" href="{% url 'news:index' %}">
+                    <h1>She <span style="color:orange">{Codes}</span><span style="color:black">News</span></h1>
+                    
+                </a>
+            </div>
+            {% include './nav.html' %}
+        </header>
+
+        {% block content %}{% endblock%}
+        <!-- content blocks here -->
+    </body>
+    <div>
+        <br>
+        <br>
+        <br>    
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    <footer>
+        <img src="{% static 'images/news_background.jpg' %}">
+        <p> © Angela Evans 2022 </p>
+    </footer>
+</html>

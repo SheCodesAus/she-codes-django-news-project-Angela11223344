@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+    
+    <!--DIY-START!-->
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'news:newStory' %}">Got something to share? Click here to submit a story!</a>
+    {% else %}
+        <p>You must be logged in to submit a new story!</p>
+    {% endif %}
+    <!--DIY-END!-->
+
+    <h2>Latest News...</h2>
+
+    <div id="latest-stories">
+        {% if latest_stories %}
+            {% for story in latest_stories %}
+                {% include  "./storyCard.html"  with    story=story position=forloop.counter %}            
+            {% endfor %}
+        {% else %}
+            <p>No stories are currently available! Check back later...</p>
+        {% endif %}    
+    </div>
+
+    <div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    <h2>All News...</h2>
+
+    </div>
+
+    <div id="old-stories">
+        {% if old_stories %}
+            {% for story in old_stories %}
+                {% include "./storyCard.html" with story=story %}
+            {% endfor %}
+        {% else %}
+            <p>You have reached the end of all stories! Check back later...</p>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
