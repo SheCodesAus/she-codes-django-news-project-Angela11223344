@@ -21,4 +21,4 @@ class EditAccountView(generic.UpdateView):
 	template_name = 'users/editAccount.html'
 	context_object_name = 'editAccount'
 	def get_success_url(self):
-		return reverse_lazy('users:profile', kwargs={'pk': self.object.id})
+		return reverse_lazy('users:viewAccount', kwargs={'pk': self.object.id})
